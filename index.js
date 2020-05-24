@@ -1,18 +1,11 @@
 const fs = require('fs');
 
-let text = fs.readFileSync("./long.txt", "utf-8")
-text = text.split(/[\s,]+/)
+let inputText = fs.readFileSync("./long.txt", "utf-8")
+inputText = inputText.split(/[\s,]+/)
 
-function getAllIndexes(arr, val) {
-    var indexes = [], i;
-    for(i = 0; i < arr.length; i++)
-        if (arr[i] === val)
-            indexes.push(i);
-    return indexes;
+function find(){
+    return inputText
 }
 
+module.exports = find
 
-let indexTrazeneRijeci = getAllIndexes(text, "I").slice(0, 20)
-indexTrazeneRijeci.forEach((index) =>{
-    console.log(text[index], text[index+1]);
-})
