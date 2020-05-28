@@ -7,6 +7,10 @@ describe('Nesto kao google search', function () {
        });
     it("Search vraca listu rijeci", function () {
        let rez = search()
-       assert.isArray(rez)
+       assert.isNotArray(rez)
+    })
+    it("Mapire sljedece rijeci", function () {
+        let rez = search()
+        assert.isObject(rez)
     })
    });
