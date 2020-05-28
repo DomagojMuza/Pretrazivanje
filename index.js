@@ -32,6 +32,7 @@ searchTool.prototype.mapNextWords = function() {
     return this
 }
 
+//funkcija koja pronalazi najcesce sljedeci rijeci za unesenu rijec/recenicu
 searchTool.prototype.findNextWords = function(phrase, mappedWords = this.mappedWords, phraseIndex = 0) {
     let splitedPhrase = phrase.replace(/^\s+|\s+$|\s+(?=\s)/g, "").split(" ")
     if(splitedPhrase.length >= 4 || splitedPhrase[phraseIndex] === '') throw new Error("Search phrase invalid")
