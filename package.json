@@ -8,7 +8,7 @@
     "serve": "nodemon index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Domagoj Muža",
   "license": "ISC",
   "dependencies": {
     "chai": "^4.2.0",
