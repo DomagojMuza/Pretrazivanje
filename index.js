@@ -19,8 +19,8 @@ searchTool.prototype.mapNextWords = function() {
         let cursor = mapOfNextWords[currentWord] = mapOfNextWords[currentWord] || {} // prvi level
         cursor = cursor[cleandText[++idx]] = cursor[cleandText[idx]] || {} // drugi level
         cursor = cursor[cleandText[++idx]] = cursor[cleandText[idx]] || {} // treci level
-        cursor = cursor[cleandText[++idx]] = cursor[cleandText[idx]] || [] // cetvrti level
-        cursor.push(cleandText[++idx])
+        cursor = cursor[cleandText[++idx]] = cursor[cleandText[idx]] || {} // cetvrti level
+        cursor = cursor[cleandText[++idx]] = cursor[cleandText[idx]] || {} // cetvrti level 
         return mapOfNextWords
     }, {})
     return this
@@ -30,7 +30,10 @@ searchTool.prototype.findNextWords = function(phrase, mappedWords = this.mappedW
     if(splitedPhrase.length >= 4 || splitedPhrase[phraseIndex] === '') throw new Error("Search phrase invalid")
 
     this.nextWords = mappedWords[splitedPhrase[phraseIndex]]
+    console.log("\nPOCETAK KRUGA");
+    console.log(this.nextWords);
     this.fiveMostOcurred = Object.keys(this.nextWords).sort((wordA, wordB) =>{
+        
         return Object.keys(this.nextWords[wordB]).length - Object.keys(this.nextWords[wordA]).length
     }).slice(0, 5)
 
@@ -48,7 +51,7 @@ searchTool.prototype.printNextWords = function (){
 try { 
     new searchTool().cleanAndSplitText()
         .mapNextWords()
-        .findNextWords('       Good     ')
+        .findNextWords('I have to')
         .printNextWords()
 } catch (error) {
     console.log(error.message);
